@@ -1,0 +1,24 @@
+{
+  "name": "ai-meridian-pipeline-cli",
+  "version": "1.0.0",
+  "description": "Google Ads MMM Integration with Google Meridian via Antigravity CLI and Google Colab MCP",
+  "main": "bin/index.js",
+  "type": "module",
+  "bin": {
+    "ai-meridian-pipeline": "./bin/index.js"
+  },
+  "scripts": {
+    "start": "node bin/index.js",
+    "setup": "node bin/index.js setup",
+    "test": "node src/verify.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "@inquirer/prompts": "^7.1.0",
+    "axios": "^1.7.9",
+    "chalk": "^5.4.1",
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.5",
+    "pngjs": "^7.0.0"
+  }
+}

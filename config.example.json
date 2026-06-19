@@ -1,0 +1,24 @@
+{
+  "customerId": "YOUR_GOOGLE_ADS_CUSTOMER_ID",
+  "developerToken": "YOUR_GOOGLE_ADS_DEVELOPER_TOKEN",
+  "clientId": "YOUR_OAUTH2_CLIENT_ID",
+  "clientSecret": "YOUR_OAUTH2_CLIENT_SECRET",
+  "refreshToken": "YOUR_OAUTH2_REFRESH_TOKEN",
+  "googleAdsVersion": "v24",
+  "loginCustomerId": "",
+  "accessToken": "",
+  "tokenExpiry": 0,
+  "geminiApiKey": "antigravity",
+  "colabNotebookUrl": "YOUR_COLAB_NOTEBOOK_URL",
+  "colabToken": "",
+  "mediaChannels": [
+    "Search",
+    "Performance Max",
+    "YouTube",
+    "Display"
+  ],
+  "timeGranularity": "weekly",
+  "geoGranularity": "region",
+  "startDate": "2026-04-01",
+  "endDate": "2026-06-19"
+}

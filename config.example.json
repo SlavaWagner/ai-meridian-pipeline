@@ -19,6 +19,7 @@
   ],
   "timeGranularity": "weekly",
   "geoGranularity": "region",
+  "websiteUrl": "YOUR_WEBSITE_URL",
   "startDate": "2026-04-01",
   "endDate": "2026-06-19"
 }

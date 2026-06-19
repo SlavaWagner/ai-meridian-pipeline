@@ -22,6 +22,7 @@ const DEFAULT_CONFIG = {
   mediaChannels: ['Search', 'Performance Max', 'YouTube', 'Display'],
   timeGranularity: 'weekly', // weekly or daily
   geoGranularity: 'region',   // region (state/province) or national
+  websiteUrl: 'slavawagner.de',
   startDate: '2023-01-01',    // Meridian needs 2-3 years of historical data
   endDate: '2025-12-31'
 };

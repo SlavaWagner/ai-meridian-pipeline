@@ -98,6 +98,11 @@ program
         default: current.geminiApiKey || 'antigravity'
       });
 
+      const websiteUrl = await input({
+        message: 'Primary Website Domain / URL (e.g. slavawagner.de):',
+        default: current.websiteUrl || 'slavawagner.de'
+      });
+
       const startDate = await input({
         message: 'Historical Extraction Start Date (YYYY-MM-DD):',
         default: current.startDate || '2023-01-01'
@@ -117,6 +122,7 @@ program
         developerToken,
         colabNotebookUrl,
         geminiApiKey,
+        websiteUrl,
         startDate,
         endDate
       };

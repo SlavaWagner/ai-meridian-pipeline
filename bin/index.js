@@ -11,6 +11,7 @@ import { spawn, exec } from 'child_process';
 
 import { getConfig, saveConfig, getAccessToken, refreshAccessToken } from '../src/config.js';
 import { listAgents, getAgent, saveAgent, saveRunLog, initStorage } from '../src/storage.js';
+import BaseAgent from '../src/agents/BaseAgent.js';
 import DataExtractionAgent from '../src/agents/DataExtractionAgent.js';
 import MeridianModelingAgent from '../src/agents/MeridianModelingAgent.js';
 import InsightsAgent from '../src/agents/InsightsAgent.js';
@@ -425,5 +426,63 @@ const cleanArgs = process.argv.slice(2).filter(arg => arg.trim() !== '');
 if (cleanArgs.length === 0) {
   process.argv = [...process.argv.slice(0, 2), 'help'];
 }
+
+// Helper to execute an interactive chat session with any agent
+async function runChatSession(agentName) {
+  let targetAgent = agentName;
+  if (!targetAgent) {
+    const agents = listAgents();
+    targetAgent = await select({
+      message: 'Choose an agent to chat with:',
+      choices: agents.map(a => ({ name: `${a.role} (${a.name})`, value: a.name }))
+    });
+  }
+
+  const agent = new BaseAgent(targetAgent);
+  console.log(chalk.bold.cyan(`\n=== Started Chat Session with ${agent.role} (${agent.name}) ===`));
+  console.log(chalk.gray('Type "exit" or "quit" to end the session.\n'));
+
+  const history = [];
+
+  while (true) {
+    const userInput = await input({ message: chalk.bold.green('You: ') });
+    if (!userInput) continue;
+
+    const trimmed = userInput.trim().toLowerCase();
+    if (trimmed === 'exit' || trimmed === 'quit') {
+      console.log(chalk.cyan('\nEnding chat session. Goodbye!\n'));
+      break;
+    }
+
+    let prompt = '';
+    if (history.length > 0) {
+      prompt = `Here is the current chat history of our session:\n${history.map(h => `${h.role}: ${h.text}`).join('\n')}\n\nUser: ${userInput}`;
+    } else {
+      prompt = userInput;
+    }
+
+    try {
+      console.log(chalk.yellow('\nWaiting for agent response...'));
+      const reply = await agent.generateCompletion(prompt, false);
+      
+      console.log(chalk.bold.magenta(`\nAgent (${agent.name}):`));
+      console.log(reply);
+      console.log();
+
+      history.push({ role: 'User', text: userInput });
+      history.push({ role: 'Agent', text: reply });
+    } catch (e) {
+      console.log(chalk.red(`\nError generating response: ${e.message}\n`));
+    }
+  }
+}
+
+// CHAT Command
+program
+  .command('chat [agentName]')
+  .description('Start an interactive chat session with an AI Agent')
+  .action(async (agentName) => {
+    await runChatSession(agentName);
+  });
 
 program.parse(process.argv);

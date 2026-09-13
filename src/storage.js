@@ -1,4 +1,4 @@
-import fs from 'fs';
+﻿import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -24,7 +24,7 @@ Your core duties:
 2. Check for data completeness (missing dates or regions) and fill gaps or raise warnings.
 3. Call the transformation modules to pivot raw tables into the wide tabular CSV format required by Google Meridian.`,
     skills: ['FetchAdsDataSkill'],
-    model: 'gemini-1.5-flash'
+    model: 'antigravity'
   },
   meridianModeler: {
     name: 'meridianModeler',
@@ -41,7 +41,7 @@ Guidelines for generating python code:
 3. Configure the check_convergence() diagnostics to verify Gelman-Rubin R-hat parameters.
 4. Prepare the final JSON report output containing convergence status, channel ROI, and marginal ROI estimates.`,
     skills: ['GenerateModelScriptSkill', 'ExecuteColabSkill'],
-    model: 'gemini-1.5-flash'
+    model: 'antigravity'
   },
   insightsAnalyst: {
     name: 'insightsAnalyst',
@@ -55,7 +55,7 @@ Your duties:
 3. Budget Optimization: Run budget optimization scenarios to maximize conversions for the same budget. Contrast current vs. optimized spends and highlight efficiency lift (ROI gains).
 4. Provide structured, actionable executive recommendations in German.`,
     skills: ['LLMGenerateSkill'],
-    model: 'gemini-1.5-flash'
+    model: 'antigravity'
   }
 };
 
@@ -121,3 +121,4 @@ export function saveRunLog(runLog) {
   fs.writeFileSync(logPath, JSON.stringify(runLog, null, 2), 'utf8');
   return logPath;
 }
+

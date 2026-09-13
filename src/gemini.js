@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
+﻿import { GoogleGenerativeAI } from '@google/generative-ai';
 import chalk from 'chalk';
 import readline from 'readline';
 
@@ -23,7 +23,7 @@ function getMultilineInput() {
 /**
  * Text generation via Gemini or interactive Antigravity CLI input bridge.
  */
-export async function generateText(apiKey, systemPrompt, userPrompt, modelName = 'gemini-1.5-flash', jsonMode = false) {
+export async function generateText(apiKey, systemPrompt, userPrompt, modelName = 'antigravity', jsonMode = false) {
   const isBridge = !apiKey || apiKey.toLowerCase() === 'antigravity' || apiKey.toLowerCase() === 'bridge';
 
   if (isBridge) {
@@ -110,3 +110,4 @@ export async function generateText(apiKey, systemPrompt, userPrompt, modelName =
     throw new Error(`Gemini API Error: ${error.message}`);
   }
 }
+

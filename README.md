@@ -86,16 +86,16 @@ npm test
 
 Alle Befehle werden innerhalb der Google Antigravity CLI (`agy`) ausgeführt:
 
-| Befehl | Argumente / Optionen | Kurzbeschreibung |
-| :--- | :--- | :--- |
-| `ai-meridian-pipeline run-workflow` | Keine | Führt die vollständige 3-Agenten Marketing Mix Modeling (MMM) Pipeline synchron aus: Datenextraktion -> Meridian Bayesian Training via Colab MCP -> Strategischer Budget-Optimierungsreport. |
-| `ai-meridian-pipeline extract` | Keine | Zieht historische Google Ads Performancedaten (Kosten, Impressions, Klicks, Conversions) geo-segmentiert ab und transformiert sie in das Wide-Format `storage/data/meridian_input.csv`. |
-| `ai-meridian-pipeline run-model` | Keine | Generiert das Meridian Python-Modellskript, sendet es an Google Colab via MCP und führt das MCMC Bayesian Sampling auf der T4-GPU aus. |
-| `ai-meridian-pipeline insights` | Keine | Analysiert die MCMC Konvergenz ($\hat{R}$ Metriken), berechnet Grenz-ROAS-Kurven und generiert den Management-Report zur Budget-Reallokation. |
-| `ai-meridian-pipeline chat` | `[agentName]` | Startet eine interaktive Chat-Session mit einem der Meridian-Agenten (`data_preparer`, `model_runner`, `strategist`). |
-| `ai-meridian-pipeline agent list` | Keine | Listet alle persistenten Meridian AI-Agenten mit Rolle, System-Prompt und Modell-Konfiguration auf. |
-| `ai-meridian-pipeline status` | Keine | Zeigt den aktuellen Status der API-Verbindung, des Colab MCP Bridges und der Eingabedaten an. |
-| `ai-meridian-pipeline setup` | Keine | Interaktiver Einrichtungsassistent für Google Ads API, Google Colab Notebook URL, Domain und Budget-Parameter. |
+| Befehl | Kurzbeschreibung |
+| :--- | :--- |
+| `ai-meridian-pipeline run-workflow` | Führt die vollständige 3-Agenten Marketing Mix Modeling (MMM) Pipeline synchron aus: Datenextraktion -> Meridian Bayesian Training via Colab MCP -> Strategischer Budget-Optimierungsreport. |
+| `ai-meridian-pipeline extract` | Zieht historische Google Ads Performancedaten (Kosten, Impressions, Klicks, Conversions) geo-segmentiert ab und transformiert sie in das Wide-Format `storage/data/meridian_input.csv`. |
+| `ai-meridian-pipeline run-model` | Generiert das Meridian Python-Modellskript, sendet es an Google Colab via MCP und führt das MCMC Bayesian Sampling auf der T4-GPU aus. |
+| `ai-meridian-pipeline insights` | Analysiert die MCMC Konvergenz ($\hat{R}$ Metriken), berechnet Grenz-ROAS-Kurven und generiert den Management-Report zur Budget-Reallokation. |
+| `ai-meridian-pipeline chat` | Startet eine interaktive Chat-Session mit einem der Meridian-Agenten (`data_preparer`, `model_runner`, `strategist`). |
+| `ai-meridian-pipeline agent list` | Listet alle persistenten Meridian AI-Agenten mit Rolle, System-Prompt und Modell-Konfiguration auf. |
+| `ai-meridian-pipeline status` | Zeigt den aktuellen Status der API-Verbindung, des Colab MCP Bridges und der Eingabedaten an. |
+| `ai-meridian-pipeline setup` | Interaktiver Einrichtungsassistent für Google Ads API, Google Colab Notebook URL, Domain und Budget-Parameter. |
 
 ### Beteiligte KI-Agenten
 

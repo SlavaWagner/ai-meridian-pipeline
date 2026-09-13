@@ -5,6 +5,11 @@ An automated persistent AI Agent CLI built on the **Google Antigravity CLI** fra
 ### 🌟 Purpose & Novelty
 This AI Agent package allows regular Google Ads users to perform complex Marketing Mix Modeling (MMM) calculations with **Google Meridian**! It automatically pulls campaign performance data directly from your Google Ads account, runs Bayesian training MCMC simulations in the background on a T4 GPU runtime via Google Colab MCP, and generates comprehensive, easy-to-understand executive insights reports using Gemini (via the Google Antigravity CLI).
 
+> [!IMPORTANT]
+> **Prerequisite for AI Processing:**
+> Please start Google Antigravity beforehand using the command **`agy`** in your console!
+> Interactive chat sessions, asset generation workflows, and AI processing run exclusively **INSIDE the Antigravity CLI**. In a standard terminal shell outside Antigravity, no AI processing takes place, and static execution outputs are intercepted with a guidance notice.
+
 ---
 
 ## Architecture & Agents
